@@ -1,0 +1,11 @@
+h2, span {
+    color: turquoise;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 0.1rem;
+}
