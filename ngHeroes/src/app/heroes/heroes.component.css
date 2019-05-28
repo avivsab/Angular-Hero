@@ -3,7 +3,7 @@ h2 {
 }
 
 span {
-    background-color: brown;
+    background-color: blueviolet;
     opacity: 0.9;
     border-right: 5px #fff solid;
     border-radius: 15%;
@@ -29,3 +29,7 @@ li:nth-child(even) {
     margin: 0.5rem;
    
 }
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
