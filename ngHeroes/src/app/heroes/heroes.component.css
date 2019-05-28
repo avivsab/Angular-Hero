@@ -1,11 +1,31 @@
-h2, span {
+h2 {
     color: turquoise;
+}
+
+span {
+    background-color: brown;
+    opacity: 0.9;
+    border-right: 5px #fff solid;
+    border-radius: 15%;
 }
 
 ul {
     list-style-type: none;
 }
 
-li {
-    padding: 0.1rem;
+li:nth-child(odd) {
+    
+    background-color: lightblue;
+    width: fit-content;
+    border-radius: 5px;
+    margin: 0.5rem;
+   
+}
+li:nth-child(even) {
+    
+    background-color: lawngreen;
+    width: fit-content;
+    border-radius: 5px;
+    margin: 0.5rem;
+   
 }
