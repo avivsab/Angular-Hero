@@ -45,4 +45,13 @@ export class HeroService {
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     )
   }
+  updateHero(hero:Hero):Observable<any> {
+    return this.http.put(this.heroesURL, hero, httpOptions).pipe(
+      tap(_ => this.log(`Update hero id number ${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    )
+  } 
 }
+  const httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
