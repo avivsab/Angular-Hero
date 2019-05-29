@@ -16,10 +16,10 @@ export class HeroService {
     return this.http.get<Hero[]>(this.heroesURL).pipe(
       tap(_ => this.log('Fetched the heroes')),catchError(this.handleError<Hero[]>('getHeroes', []))) 
   }
-  getHero(id: number): Observable<Hero> {
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return of(HeroesData.find(hero => hero.id===id));
-  } 
+  // getHero(id: number): Observable<Hero> {
+  //   this.messageService.add(`HeroService: fetched hero id=${id}`);
+  //   return of(HeroesData.find(hero => hero.id===id));
+  // } 
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
@@ -37,5 +37,12 @@ export class HeroService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+  getHero(id: number): Observable<Hero> {
+    const URL = `${this.heroesURL}/${id}`;
+    return this.http.get<Hero>(URL).pipe(
+      tap(_=> this.log(`Fetched hero with id num ${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    )
   }
 }
