@@ -13,7 +13,8 @@ export class HeroService {
   constructor(private http: HttpClient,private messageService: MessageService) { }
 
   getHeroes(): Observable<Hero[]>{
-    return this.http.get<Hero[]>(this.heroesURL).pipe(catchError(this.handleError<Hero[]>('getHeroes', []))) 
+    return this.http.get<Hero[]>(this.heroesURL).pipe(
+      tap(_ => this.log('Fetched the heroes')),catchError(this.handleError<Hero[]>('getHeroes', []))) 
   }
   getHero(id: number): Observable<Hero> {
     this.messageService.add(`HeroService: fetched hero id=${id}`);
