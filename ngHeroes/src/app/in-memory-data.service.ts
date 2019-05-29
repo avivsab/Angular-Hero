@@ -5,7 +5,7 @@ import { Hero } from './hero';
 @Injectable({
   providedIn: 'root'
 })
-export class InMemoryDataService implements InMemoryDataService {
+export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     const heroes = [
@@ -22,7 +22,7 @@ export class InMemoryDataService implements InMemoryDataService {
     ];
     return {heroes}
   }
-  generateId(heroes: Hero[]): number {
+  genId(heroes: Hero[]): number {
     return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
   }
 }
