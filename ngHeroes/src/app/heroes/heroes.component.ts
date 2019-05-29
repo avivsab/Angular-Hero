@@ -9,17 +9,16 @@ import { HeroesData } from '../data-heroes';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  selectedHero: Hero;
-  onSelect(hero:Hero):void {
-    this.selectedHero = hero;
-  }
+  
   heroes: Hero[];
 
   
   constructor(private heroService: HeroService) { }
+
   getHeros(): void {
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)
   }
+  
   ngOnInit() {
     this.getHeros();
   }
